@@ -58,10 +58,81 @@ var movies = [
   },
 ];
 
+/**************  Task 1 ******************/
+
 // create showMovies function
 
+function showMovies() {
+  movies.forEach((movie) => {
+    setTimeout(() => {
+      const pElement = document.createElement("p");
+      pElement.innerHTML = movie.title + " : " + movie.director;
+      const allMovies = document.querySelector("#all-movies");
+      allMovies.appendChild(pElement);
+      const moviesNumber = document.querySelector("#movies-number");
+      moviesNumber.innerHTML = movies.length;
+      console.log(movie.title);
+      // empty field
+    }, 1000);
+  });
+}
+showMovies();
+
+/**************  Task 2  and Task 3******************/
 
 // create a new movie object for your favorite movie
+let myFavMovie = {
+  title: "3 Idiots",
+  director: "Rajkumar Hirani",
+  type: "Motivational",
+  haveWatched: true,
+};
 
+/* function addMovie */
+function addNewMovie(movie) {
+  setTimeout(() => {
+    const paragraphE = document.createElement("p");
+    paragraphE.innerHTML = movie.title + " : " + movie.director;
+    const toalMovies = document.querySelector("#all-movies");
+    toalMovies.appendChild(paragraphE);
+    movies.push(movie.myFavMovie);
+    const moviesNumber = document.querySelector("#movies-number");
+    moviesNumber.innerHTML = movies.length;
+  }, 2000);
+}
 
-// create addMovies function
+addNewMovie(myFavMovie);
+
+/*
+Task 4
+When the button is clicked
+- The field values should be used to create a new movie object literal
+- The new movie is then added to the list of movies and gets displayed on your page
+TIP: Use the functions you created on tasks 1-3
+*/
+
+/********************** Task 4 **********************/
+const form = document.querySelector("#form");
+form.addEventListener("click", (e) => {
+  e.preventDefault();
+  console.log("workinn..");
+  addMovie();
+});
+
+const addMovie = () => {
+  const movieName = document.querySelector("#title").value.trim();
+  const movieDirector = document.querySelector("#director").value.trim();
+  const movieType = document.querySelector("#type").value.trim();
+  const movieWatched = document.querySelector("#watched").value.trim();
+
+  const alMovies = document.querySelector("#all-movies");
+  const pEle = document.createElement("p");
+  alMovies.appendChild(pEle);
+
+  pEle.innerHTML =
+    movieName + "  " + movieDirector + " " + movieType + " " + movieWatched;
+
+  const countTotalMovies = document.querySelector("#movies-number");
+  //  countTotalMovies.innerHTML = movies.length++; or
+  countTotalMovies.innerHTML++;
+};
