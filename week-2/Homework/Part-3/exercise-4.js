@@ -58,14 +58,28 @@ let restaurantFinderApplication = {
   applicationName: "Restaurant Finder",
   applicationVersion: "1.0",
   restaurants: restaurants,
+
   findAvailableRestaurants: function (numberOfPeople) {
     // Complete here
+    let availableRestaurants = restaurants.filter(
+      (r) => r.totalSeats - r.numberOfCustomers > numberOfPeople
+    );
+    let nameOFavailableRestaurants = availableRestaurants.map((r) => r.name);
+    return nameOFavailableRestaurants;
   },
+
   findRestaurantServingDish: function (dishName) {
     // Complete here
+    let checkDishName = restaurants.filter((r) => r.menu.includes(dishName));
+    let restaurantsWithThisDish = checkDishName.map((r) => r.name);
+    return restaurantsWithThisDish;
   },
+
   countNumberOfRestaurantsInArea: function (area) {
     // Complete here
+    let findArea = restaurants.filter((r) => r.address.area === area);
+    let countRestaurants = findArea.length; // to count the number of restaurants in that area
+    return countRestaurants;
   },
 };
 
@@ -79,18 +93,14 @@ console.log(
   `Find available restaurants for 5 people: Expected result: Ubiquitous Chip,Monkeyz, actual result: ${restaurantsAvailableFor5People}`
 );
 
-/*
-  let restaurantsServingSalad = restaurantFinderApplication.findRestaurantServingDish(
-    "salad"
-  );
-  console.log(
-    `Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: ${restaurantsServingSalad}`
-  );
-  
-  let numberOfRestaurantsInCityCentre = restaurantFinderApplication.countNumberOfRestaurantsInArea(
-    "center"
-  );
-  console.log(
-    `Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`
-  );
-  */
+let restaurantsServingSalad =
+  restaurantFinderApplication.findRestaurantServingDish("salad");
+console.log(
+  `Find restaurants serving salad: Expected result: Paesano,Ubiquitous Chip, actual result: ${restaurantsServingSalad}`
+);
+
+let numberOfRestaurantsInCityCentre =
+  restaurantFinderApplication.countNumberOfRestaurantsInArea("center");
+console.log(
+  `Number of restaurants in city centre: Expected result: 2, actual result: ${numberOfRestaurantsInCityCentre}`
+);
