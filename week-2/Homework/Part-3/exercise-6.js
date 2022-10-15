@@ -41,21 +41,20 @@ function removeSkill(mentors,newSkill){
 function addStudentLikes(mentors){
   //your code here
 }
-*/ 
+*/
 
 var mentors = [
   {
     firstName: "Antonio",
     lastName: "Miranda",
-    skills: ["JS","React","Node"],
+    skills: ["JS", "React", "Node"],
     class: "Mar1",
     studentLikes: 0,
-    job:
-      {
-        company: "Google",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Google",
+      position: "Senior developer",
+      city: "Barcelona",
+    },
   },
   {
     firstName: "Leo",
@@ -63,41 +62,48 @@ var mentors = [
     skills: ["Play football"],
     class: "Mar3",
     studentLikes: 0,
-    job:
-      {
-        company: "FC Barcelona",
-        position: "Player",
-        city: "Barcelona"
-      }
+    job: {
+      company: "FC Barcelona",
+      position: "Player",
+      city: "Barcelona",
+    },
   },
   {
     firstName: "John",
     lastName: "VanDamme",
-    skills: ["React","Angular","Python","Node"],
+    skills: ["React", "Angular", "Python", "Node"],
     class: "Mar4",
     studentLikes: 0,
-    job:
-      {
-        company: "Facebook",
-        position: "Software Manager",
-        city: "Chicago"
-      }
-  },  
+    job: {
+      company: "Facebook",
+      position: "Software Manager",
+      city: "Chicago",
+    },
+  },
   {
     firstName: "Giorgio",
     lastName: "Polvara",
-    skills: ["HTML","JS","React"],
+    skills: ["HTML", "JS", "React"],
     class: "Mar2",
     studentLikes: 0,
-    job:
-      {
-        company: "Amazon",
-        position: "Senior developer",
-        city: "Barcelona"
-      }
+    job: {
+      company: "Amazon",
+      position: "Senior developer",
+      city: "Barcelona",
+    },
   },
-
 ];
 
 //YOUR CODE HERE
 
+/************** Exercise 1  ********/
+for (let mentor in mentors) {
+  //  console.log(writers[writer].firstName);
+  console.log(
+    `Hi, my name is: ${mentors[mentor].firstName} ${mentors[mentor].lastName}. I work in ${mentors[mentor].job.city} and i know ${mentors[mentor].skills}.`
+  );
+}
+
+/*************** Exercise 2 *******************/
+mentors.class.push("Jun1");
+console.log(mentors);
